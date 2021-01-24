@@ -7,6 +7,7 @@ into kernel for further processing (IIUC). Poor man's eBPF for OpenBSD? :-)
 
 # sample pf.conf
 
+Simple divert
 pf.conf
 ```
 pass out on $int_if inet proto tcp to port 80 divert-packet port 700

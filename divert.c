@@ -62,6 +62,10 @@ main(int argc, char *argv[])
 
                 th = (struct tcphdr *) (packet + hlen);
 
+		// TODO: rewrite source IP address
+		// The kernel chooses the gateway interface's IP address by default.
+		memset(&ip->ip_src, 0, sizeof(ip->ip_src));
+
                 if (inet_ntop(AF_INET, &ip->ip_src, src,
                         sizeof(src)) == NULL)
                         (void)strlcpy(src, "?", sizeof(src));
